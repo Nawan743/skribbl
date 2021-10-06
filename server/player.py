@@ -23,9 +23,3 @@ class Player:
     @score.setter
     def score(self, x):
         self.score += x
-        
-    def guess(self, name_guess):
-        pass
-    
-    def disconnect(self):
-        pass

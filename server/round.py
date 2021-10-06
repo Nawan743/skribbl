@@ -18,6 +18,22 @@ class Round:
         self.time = 75
         start_new_thread(self.time_thread, ())
         
+    @property
+    def player_scores(self):
+        return self.player_scores
+    
+    def score_from_player(self, player):
+        if player in self.player_scores:
+            return self.player_scores[player]
+        else:
+            raise Exception("Player not in score list!")
+        
+    def skip(self):
+        self.skips += 1
+        if self.skips > (len(self.player_scores) / 2):
+            return True
+        return False
+        
     def time_thread(self):
         while self.time > 0:
             time.sleep(1)
